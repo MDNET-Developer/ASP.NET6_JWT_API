@@ -10,16 +10,18 @@ namespace MD.JWTApp.Back.Persistance.Context
         {
 
         }
-        public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<AppRole> AppRoles { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
+
+        //Her iki variant dogrudur.
+        public DbSet<AppUser> AppUsers{ get { return this.Set<AppUser>(); } }
+        public DbSet<AppRole> AppRoles =>this.Set<AppRole>();
+        public DbSet<Product> Products { get {return this.Set<Product>(); } }
+        public DbSet<Category> Categories => this.Set<Category>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AppUserConfigration());
             modelBuilder.ApplyConfiguration(new ProductConfugration());
-            base.OnModelCreating(modelBuilder); 
+            base.OnModelCreating(modelBuilder);
         }
 
     }

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MD.JWTApp.Back.Migrations
+namespace MD.JWTApp.Back.Persistance.Migrations
 {
     [DbContext(typeof(MuradJwtContext))]
     partial class MuradJwtContextModelSnapshot : ModelSnapshot

@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MD.JWTApp.Back.Migrations
+namespace MD.JWTApp.Back.Persistance.Migrations
 {
     [DbContext(typeof(MuradJwtContext))]
-    [Migration("20230211203251_InitialCreate")]
+    [Migration("20230212085637_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
