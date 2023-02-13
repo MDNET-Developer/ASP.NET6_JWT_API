@@ -21,8 +21,7 @@ namespace MD.JWTApp.Back.Core.Application.Features.CQRS.Handlers
         {
             var mappeddata = _mapper.Map<Product>(request);
             await _productRepo.UpdateAsync(mappeddata);
-            //var mappeddata = _mapper.Map<Product>(request);
-            //var getId = await _productRepo.GetByIdAsync(mappeddata.Id);
+
 
             //var getId = await _productRepo.GetByIdAsync(request.Id);
             //if (getId != null)
@@ -32,8 +31,8 @@ namespace MD.JWTApp.Back.Core.Application.Features.CQRS.Handlers
             //    getId.Stock = request.Stock;
             //    getId.CategoryId = request.CategoryId;
             //    await _productRepo.UpdateAsync(getId);
-
             //}
+
             return Unit.Value;
         }
     }

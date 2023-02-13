@@ -27,11 +27,23 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 //Burada olann assembly c# da olan exe ve ddl fayllarinin umumi adidir. Burada umumi olaraq bu fayllar icinden bizim hal hazirda oldugumuz faylin yerini alir GetExecutingAssembly();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
+//builder.Services.AddAutoMapper(opt =>
+//{
+//    opt.AddProfile(new ProductProfile());
+//    opt.AddProfile(new CategoryProfile());
+//});
 builder.Services.AddAutoMapper(opt =>
 {
-    opt.AddProfile(new ProductProfile());
+    opt.AddProfiles(new List<Profile>()
+    {
+
+    new ProductProfile(),
+    new CategoryProfile()
+
+    });
 });
-  
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
