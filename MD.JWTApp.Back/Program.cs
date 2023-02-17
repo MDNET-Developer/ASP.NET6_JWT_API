@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MD.JWTApp.Back.Core.Application.Interfaces;
 using MD.JWTApp.Back.Core.Application.Mappings;
+using MD.JWTApp.Back.Infrastructure.Tool;
 using MD.JWTApp.Back.Persistance.Context;
 using MD.JWTApp.Back.Persistance.Repositories;
 using MediatR;
@@ -19,11 +20,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.RequireHttpsMetadata = false;
     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
     {
-        ValidIssuer = "http://localhost",
-        ValidAudience = "http://localhost",
+        ValidIssuer = JwtSettingsDefault.ValidIssuer,
+        ValidAudience = JwtSettingsDefault.ValidAudience,
         //ValidateIssuer = true - bunu yazsaq ValidIssuer de yazdigimiz kodun yoxlanmasini tetbiq edecyeik.
         //ValidateAudience = true - bunu yazsaq ValidAudience de yazdigimiz kodun yoxlanmasini tetbiq edecyeik.
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("murad2001")),
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF32.GetBytes(JwtSettingsDefault.SigningKey)),
         ValidateIssuerSigningKey = true,
         ValidateLifetime = true,//Token-nin zamanini yoxlayir ki, vaxti kecibmi ya yox ?
         ClockSkew = TimeSpan.Zero, //server ile müştəri arasında gecikməni sıfır edir.

@@ -1,11 +1,14 @@
 ﻿using MD.JWTApp.Back.Core.Application.Features.CQRS.Commands;
 using MD.JWTApp.Back.Core.Application.Features.CQRS.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace MD.JWTApp.Back.Controllers
 {
+    [Authorize(Roles = "Admin,Member")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryesController : ControllerBase

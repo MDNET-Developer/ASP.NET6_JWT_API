@@ -1,5 +1,6 @@
 ﻿using MD.JWTApp.Back.Core.Application.Features.CQRS.Commands;
 using MD.JWTApp.Back.Core.Application.Features.CQRS.Queries;
+using MD.JWTApp.Back.Infrastructure.Tool;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,12 +27,13 @@ namespace MD.JWTApp.Back.Controllers
 
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> Login(CheckUserQueryRequest checkUser)
+        public async Task<IActionResult> Login(CheckUserQueryRequest request)
         {
-          var dtoCheck =   await _mediator.Send(checkUser);
+          var dtoCheck =   await _mediator.Send(request);
             if (dtoCheck.IsExist)
             {
-                return Ok($"{checkUser.UserName} adlı istifadəçi uğurla token yaradıldı.");
+              
+                return Created("",JWTGenerator.GenerateToken(dtoCheck));
             }
             else
             {
