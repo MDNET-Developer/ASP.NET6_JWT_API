@@ -58,7 +58,7 @@ namespace MD.JWTApp.Back.Controllers
             }
             else
             {
-                return Ok($"Id={id} olan data tapılmadı");
+                return BadRequest($"Id={id} olan data tapılmadı");
             }
        
         }

@@ -1,4 +1,5 @@
 ﻿using MD.JWTApp.Back.Core.Application.Features.CQRS.Commands;
+using MD.JWTApp.Back.Core.Application.Features.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,22 @@ namespace MD.JWTApp.Back.Controllers
         {
             await _mediator.Send(registerUser);
             return Ok($"{ registerUser.UserName} adlı istifadəçi uğurla qeydiyyatdan keçdi.");
+        }
+
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Login(CheckUserQueryRequest checkUser)
+        {
+          var dtoCheck =   await _mediator.Send(checkUser);
+            if (dtoCheck.IsExist)
+            {
+                return Ok($"{checkUser.UserName} adlı istifadəçi uğurla token yaradıldı.");
+            }
+            else
+            {
+                return BadRequest($"Xəta !!!");
+            }
+            
         }
     }
 }

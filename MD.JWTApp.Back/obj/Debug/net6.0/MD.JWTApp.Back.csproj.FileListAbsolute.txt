@@ -70,3 +70,4 @@ D:\MyProjects\NEW\MD.JWTApp\MD.JWTApp.Back\bin\Debug\net6.0\AutoMapper.Extension
 D:\MyProjects\NEW\MD.JWTApp\MD.JWTApp.Back\bin\Debug\net6.0\MediatR.dll
 D:\MyProjects\NEW\MD.JWTApp\MD.JWTApp.Back\bin\Debug\net6.0\MediatR.Contracts.dll
 D:\MyProjects\NEW\MD.JWTApp\MD.JWTApp.Back\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+D:\MyProjects\NEW\MD.JWTApp\MD.JWTApp.Back\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
